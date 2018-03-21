@@ -5,13 +5,12 @@ import java.rmi.registry.*;
 public class Assn6Server{
 	
 	public static void main(String[] args){
-		int port = 1100;
 		try{
 			String ip = "rmi://" + args[0] + "/cecs327";
 			System.setProperty("java.rmi.server.hostname", args[0]);
-			Method method = new Method();
-			Registry reg = LocateRegistry.createRegistry(port);
-			reg.rebind(ip, method);
+			MethodInterface method = new Method();
+			
+			Naming.rebind("rmi://127.0.0.1/cecs327", method);
 			
 			System.out.println("Assn6Server is ready!\n");
 			System.out.println("Use " + ip);

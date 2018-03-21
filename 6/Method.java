@@ -4,7 +4,6 @@ import java.rmi.server.*;
 public class Method extends UnicastRemoteObject implements MethodInterface{
 	
 	public Method() throws RemoteException{
-		super(1100);
 	}
 	public int fibonacci(int n) throws RemoteException{
 		int prev = 0;

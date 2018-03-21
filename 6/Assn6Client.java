@@ -5,8 +5,7 @@ public class Assn6Client{
 	public static void main(String[] args){
 		MethodInterface method;
 		try{
-			Registry registry = LocateRegistry.getRegistry(1100);
-			method = (MethodInterface) registry.lookup(args[0]);
+			method = (MethodInterface) Naming.lookup(args[0]);
 			if(args[1].equals("fibonacci")){
 				System.out.print("The fibonacci of " + args[2] + " is: ");
 				System.out.println(method.fibonacci(Integer.parseInt(args[2])));
